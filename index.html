@@ -52,7 +52,11 @@
                     optional: [{RtpDataChannels: true}]
                 };
 
-                var servers = {iceServers: [{urls: "stun:stun.services.mozilla.com"}]};
+                var servers = {iceServers: [
+                    { "urls": "turn:turn-testdrive.cloudapp.net:3478?transport=udp", "username": "redmond", "credential": "redmond123" },
+                    {urls: "stun:stun.services.mozilla.com"}
+                    
+                    ]};
 
                 //construct a new RTCPeerConnection
                 var pc = new RTCPeerConnection(servers, mediaConstraints);
